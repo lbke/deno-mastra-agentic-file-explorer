@@ -1,0 +1,1 @@
+deno add --npm @mastra/core@latest zod@^4
