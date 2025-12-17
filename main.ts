@@ -2,19 +2,25 @@
 // Deno std lib
 // https://jsr.io/
 import { Agent } from "@mastra/core/agent";
+import { RuntimeContext } from "@mastra/core/runtime-context";
 import { processArgs } from "./process-args.ts";
 import { loadConfig } from "./load-config.ts";
 import process from "node:process";
-
+import { scanFolder } from "./tools.ts";
 
 const fileExplorerAgent = new Agent({
     model: "mistral/ministral-3b-latest",
     instructions: `
     You are a file explorer agent.
     Answer user questions about a folder.
-    You are provided tools to explore the folder, list files, dive into nested folders.
+    You are provided tools to scan the folder, list files, dive into nested folders.
+    Use the appropriate tools to answer questions.
     `,
     name: "file-explorer",
+    tools: { scanFolder },
+    defaultGenerateOptions: {
+        maxSteps: 10
+    }
 })
 
 async function main() {
@@ -23,15 +29,17 @@ async function main() {
     const args = processArgs()
     // TODO: how to do that in Deno
     if (!args) process.exit(0)
-    const { prompt } = args
+    const { prompt, rootFolder } = args
     loadConfig()
+    const runtimeContext = new RuntimeContext<{ rootFolder: string }>()
+    runtimeContext.set("rootFolder", rootFolder)
     const msg = await fileExplorerAgent.generate([
         {
             role: "user",
             content: prompt
-        }
-    ])
-    console.log("File Explorer says:", msg.text)
+        },
+    ], { runtimeContext })
+    console.log("File Explorer says:", msg.text, msg.toolCalls, msg.toolResults)
     process.exit(0)
 }
 await main()

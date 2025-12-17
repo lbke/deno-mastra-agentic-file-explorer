@@ -2,6 +2,7 @@
   "imports": {
     "@mastra/core": "npm:@mastra/core@^0.24.6",
     "@std/cli": "jsr:@std/cli@^1.0.24",
+    "@std/fs": "jsr:@std/fs@^1.0.20",
     "@std/path": "jsr:@std/path@^1.1.3",
     "@types/node": "npm:@types/node@^24.2.0",
     "mastra": "npm:mastra@^0.18.6",
