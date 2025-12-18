@@ -1,7 +1,7 @@
 import { createTool } from "@mastra/core";
 import { walk } from "@std/fs"
 
-export const scanFolder = (rootFolder: string) => createTool({
+export const scanFolder = createTool({
     id: "scan-folder",
     description: `Scans the content of a folder`,
     execute: async function ({ runtimeContext }) {
@@ -21,6 +21,7 @@ export const scanFolder = (rootFolder: string) => createTool({
         const strRepresentation = folderContent
             .map(d => `${d.isDirectory ? "(D)" : "(F)"} ${d.path}`)
             .join("\n")
+        console.log("Files found in folder", strRepresentation)
         return strRepresentation
     }
 })
