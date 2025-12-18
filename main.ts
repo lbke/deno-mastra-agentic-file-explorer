@@ -7,12 +7,13 @@ import { processArgs } from "./process-args.ts";
 import { loadConfig } from "./load-config.ts";
 import process from "node:process";
 import { scanFolder } from "./tools.ts";
+import { Mastra } from "@mastra/core";
 // import { Memory } from "@mastra/memory";
 
 const SMALL_LLM = "mistral/ministral-3b-latest"
 const BIG_LLM = "mistral/mistral-large-latest"
 const fileExplorerAgent = new Agent({
-    model: BIG_LLM,
+    model: SMALL_LLM,
     instructions: `
     You are a file explorer agent.
     Answer user questions about a folder.
@@ -27,6 +28,12 @@ const fileExplorerAgent = new Agent({
         maxSteps: 10
     }
 })
+
+// const mastra = new Mastra({
+//     agents: { fileExplorerAgent: fileExplorerAgent_ },
+//     logger: false,
+// });
+// const fileExplorerAgent = mastra.getAgent("fileExplorerAgent")
 
 async function main() {
     console.log("File Explorer says hi")
