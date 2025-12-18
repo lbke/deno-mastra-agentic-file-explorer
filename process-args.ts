@@ -4,7 +4,6 @@ import { resolve, } from "@std/path";
 function parseFolder(folder: string) {
     // @see https://docs.deno.com/examples/path_operations/
     const absoluteFolderPath = resolve(Deno.cwd(), folder)
-    console.log("Resolved path", absoluteFolderPath)
     return absoluteFolderPath
 }
 function parsePrompt(prompt: string) {

@@ -7,6 +7,7 @@ import { processArgs } from "./process-args.ts";
 import { loadConfig } from "./load-config.ts";
 import process from "node:process";
 import { scanFolder } from "./tools.ts";
+// import { Memory } from "@mastra/memory";
 
 const fileExplorerAgent = new Agent({
     model: "mistral/ministral-3b-latest",
@@ -18,6 +19,8 @@ const fileExplorerAgent = new Agent({
     `,
     name: "file-explorer",
     tools: { scanFolder },
+    // doesn't seem to fix the issue with tools
+    // memory: new Memory(),
     defaultGenerateOptions: {
         maxSteps: 10
     }
@@ -25,11 +28,11 @@ const fileExplorerAgent = new Agent({
 
 async function main() {
     console.log("File Explorer says hi")
-    console.log(Deno.args)
     const args = processArgs()
     // TODO: how to do that in Deno
     if (!args) process.exit(0)
     const { prompt, rootFolder } = args
+    console.log(`Will analyze folder "${rootFolder}"`)
     loadConfig()
     const runtimeContext = new RuntimeContext<{ rootFolder: string }>()
     runtimeContext.set("rootFolder", rootFolder)
@@ -39,6 +42,7 @@ async function main() {
             content: prompt
         },
     ], { runtimeContext })
+    // @see https://github.com/mastra-ai/mastra/issues/11244
     console.log("File Explorer says:", msg.text, msg.toolCalls, msg.toolResults)
     process.exit(0)
 }

@@ -6,6 +6,7 @@
     "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@std/path@^1.1.3": "1.1.3",
     "npm:@mastra/core@~0.24.6": "0.24.6_zod@4.1.13_ai@4.3.19__zod@4.1.13_@opentelemetry+api@1.9.0_@opentelemetry+core@2.2.0__@opentelemetry+api@1.9.0_hono@4.10.7",
+    "npm:@mastra/memory@~0.15.13": "0.15.13_@mastra+core@0.24.6__zod@4.1.13__ai@4.3.19___zod@4.1.13__@opentelemetry+api@1.9.0__@opentelemetry+core@2.2.0___@opentelemetry+api@1.9.0__hono@4.10.7_zod@4.1.13_ai@4.3.19__zod@4.1.13_pg@8.16.3",
     "npm:@types/node@*": "22.15.15",
     "npm:@types/node@^24.2.0": "24.2.0",
     "npm:mastra@~0.18.6": "0.18.6_@mastra+core@0.24.6__zod@4.1.13__ai@4.3.19___zod@4.1.13__@opentelemetry+api@1.9.0__@opentelemetry+core@2.2.0___@opentelemetry+api@1.9.0__hono@4.10.7_zod@4.1.13_@opentelemetry+core@2.2.0__@opentelemetry+api@1.9.0_typescript@5.9.3",
@@ -56,6 +57,15 @@
         "zod@4.1.13"
       ]
     },
+    "@ai-sdk/gateway@1.0.33_zod@4.1.13": {
+      "integrity": "sha512-v9i3GPEo4t3fGcSkQkc07xM6KJN75VUv7C1Mqmmsu2xD8lQwnQfsrgAXyNuWe20yGY0eHuheSPDZhiqsGKtH1g==",
+      "dependencies": [
+        "@ai-sdk/provider@2.0.0",
+        "@ai-sdk/provider-utils@3.0.10_zod@4.1.13",
+        "@vercel/oidc",
+        "zod@4.1.13"
+      ]
+    },
     "@ai-sdk/gateway@2.0.12_zod@4.1.13": {
       "integrity": "sha512-W+cB1sOWvPcz9qiIsNtD+HxUrBUva2vWv2K1EFukuImX+HA0uZx3EyyOjhYQ9gtf/teqEG80M6OvJ7xx/VLV2A==",
       "dependencies": [
@@ -103,6 +113,15 @@
         "@ai-sdk/provider@1.1.3",
         "nanoid",
         "secure-json-parse@2.7.0",
+        "zod@4.1.13"
+      ]
+    },
+    "@ai-sdk/provider-utils@3.0.10_zod@4.1.13": {
+      "integrity": "sha512-T1gZ76gEIwffep6MWI0QNy9jgoybUHE7TRaHB5k54K8mF91ciGFlbtCGxDYhMH3nCRergKwYFIDeFF0hJSIQHQ==",
+      "dependencies": [
+        "@ai-sdk/provider@2.0.0",
+        "@standard-schema/spec",
+        "eventsource-parser",
         "zod@4.1.13"
       ]
     },
@@ -636,7 +655,7 @@
         "@ai-sdk/ui-utils",
         "@ai-sdk/xai-v5@npm:@ai-sdk/xai@2.0.26_zod@4.1.13",
         "@isaacs/ttlcache",
-        "@mastra/schema-compat",
+        "@mastra/schema-compat@0.11.8_ai@4.3.19__zod@4.1.13_zod@4.1.13",
         "@openrouter/ai-sdk-provider-v5@npm:@openrouter/ai-sdk-provider@1.2.3_ai@4.3.19__zod@4.1.13_zod@4.1.13",
         "@opentelemetry/api",
         "@opentelemetry/auto-instrumentations-node",
@@ -716,11 +735,43 @@
         "pino-pretty"
       ]
     },
+    "@mastra/memory@0.15.13_@mastra+core@0.24.6__zod@4.1.13__ai@4.3.19___zod@4.1.13__@opentelemetry+api@1.9.0__@opentelemetry+core@2.2.0___@opentelemetry+api@1.9.0__hono@4.10.7_zod@4.1.13_ai@4.3.19__zod@4.1.13_pg@8.16.3": {
+      "integrity": "sha512-88RBgT1VIseyvKdkzVJFw88gtFmf/+6vOMwJaeLzSq++oHtoD+A0nkUvCtuX3aYsicpf5IPUBnvEgJ9pH6J/gg==",
+      "dependencies": [
+        "@mastra/core",
+        "@mastra/schema-compat@0.11.9_ai@4.3.19__zod@4.1.13_zod@4.1.13",
+        "@upstash/redis",
+        "ai@4.3.19_zod@4.1.13",
+        "ai-v5@npm:ai@5.0.60_zod@4.1.13",
+        "async-mutex",
+        "js-tiktoken",
+        "json-schema",
+        "pg",
+        "pg-pool",
+        "postgres",
+        "redis",
+        "xxhash-wasm",
+        "zod@4.1.13",
+        "zod-to-json-schema"
+      ]
+    },
     "@mastra/schema-compat@0.11.8_ai@4.3.19__zod@4.1.13_zod@4.1.13": {
       "integrity": "sha512-JnjID9IrMRdba8ToiLij9NiBc3YGpzjvPzFdoE45mu9fIO7dPspvmKMWVS48/vUg56JCw+3AsrAiJXEPA5le2A==",
       "dependencies": [
         "ai@4.3.19_zod@4.1.13",
         "json-schema",
+        "zod@4.1.13",
+        "zod-from-json-schema@0.5.2",
+        "zod-from-json-schema-v3@npm:zod-from-json-schema@0.0.5",
+        "zod-to-json-schema"
+      ]
+    },
+    "@mastra/schema-compat@0.11.9_ai@4.3.19__zod@4.1.13_zod@4.1.13": {
+      "integrity": "sha512-LXEChx5n3bcuSFWQ5Wn9K2spLEpzHGf+DCnAeryuecpOo8VGLJ2QCK9Ugsnfjuc6hC0Ha73HvL1AD8zDhjmYOg==",
+      "dependencies": [
+        "ai@4.3.19_zod@4.1.13",
+        "json-schema",
+        "json-schema-to-zod",
         "zod@4.1.13",
         "zod-from-json-schema@0.5.2",
         "zod-from-json-schema-v3@npm:zod-from-json-schema@0.0.5",
@@ -1564,6 +1615,36 @@
     "@protobufjs/utf8@1.1.0": {
       "integrity": "sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw=="
     },
+    "@redis/bloom@5.10.0_@redis+client@5.10.0": {
+      "integrity": "sha512-doIF37ob+l47n0rkpRNgU8n4iacBlKM9xLiP1LtTZTvz8TloJB8qx/MgvhMhKdYG+CvCY2aPBnN2706izFn/4A==",
+      "dependencies": [
+        "@redis/client"
+      ]
+    },
+    "@redis/client@5.10.0": {
+      "integrity": "sha512-JXmM4XCoso6C75Mr3lhKA3eNxSzkYi3nCzxDIKY+YOszYsJjuKbFgVtguVPbLMOttN4iu2fXoc2BGhdnYhIOxA==",
+      "dependencies": [
+        "cluster-key-slot"
+      ]
+    },
+    "@redis/json@5.10.0_@redis+client@5.10.0": {
+      "integrity": "sha512-B2G8XlOmTPUuZtD44EMGbtoepQG34RCDXLZbjrtON1Djet0t5Ri7/YPXvL9aomXqP8lLTreaprtyLKF4tmXEEA==",
+      "dependencies": [
+        "@redis/client"
+      ]
+    },
+    "@redis/search@5.10.0_@redis+client@5.10.0": {
+      "integrity": "sha512-3SVcPswoSfp2HnmWbAGUzlbUPn7fOohVu2weUQ0S+EMiQi8jwjL+aN2p6V3TI65eNfVsJ8vyPvqWklm6H6esmg==",
+      "dependencies": [
+        "@redis/client"
+      ]
+    },
+    "@redis/time-series@5.10.0_@redis+client@5.10.0": {
+      "integrity": "sha512-cPkpddXH5kc/SdRhF0YG0qtjL+noqFT0AcHbQ6axhsPsO7iqPi1cjxgdkE9TNeKiBUUdCaU1DbqkR/LzbzPBhg==",
+      "dependencies": [
+        "@redis/client"
+      ]
+    },
     "@rollup/plugin-alias@5.1.1_rollup@4.50.2": {
       "integrity": "sha512-PR9zDb+rOzkRb2VD+EuKB7UC41vU5DIwZ5qqCpk0KJudcWAyi8rvYOhS7+L5aZCspw1stTViLgN5v6FF1p5cgQ==",
       "dependencies": [
@@ -1907,6 +1988,12 @@
         "@types/node@24.2.0"
       ]
     },
+    "@upstash/redis@1.35.8": {
+      "integrity": "sha512-QqLpVCD9PCPE6hlRzOkz864nfijSdazxtyJLIy9ZeTh6kU2nBIKKfjT5HMHjIRD4BCm6TK1dbUT9pxhFjcvpng==",
+      "dependencies": [
+        "uncrypto"
+      ]
+    },
     "@vercel/oidc@3.0.5": {
       "integrity": "sha512-fnYhv671l+eTTp48gB4zEsTW/YtRgRPnkI2nT7x6qw5rkI1Lq2hTmQIpHPgyThI0znLK+vX2n9XxKdXZ7BUbbw=="
     },
@@ -1945,10 +2032,20 @@
         "zod@4.1.13"
       ]
     },
+    "ai@5.0.60_zod@4.1.13": {
+      "integrity": "sha512-80U/3kmdBW6g+JkLXpz/P2EwkyEaWlPlYtuLUpx/JYK9F7WZh9NnkYoh1KvUi1Sbpo0NyurBTvX0a2AG9mmbDA==",
+      "dependencies": [
+        "@ai-sdk/gateway@1.0.33_zod@4.1.13",
+        "@ai-sdk/provider@2.0.0",
+        "@ai-sdk/provider-utils@3.0.10_zod@4.1.13",
+        "@opentelemetry/api",
+        "zod@4.1.13"
+      ]
+    },
     "ai@5.0.97_zod@4.1.13": {
       "integrity": "sha512-8zBx0b/owis4eJI2tAlV8a1Rv0BANmLxontcAelkLNwEHhgfgXeKpDkhNB6OgV+BJSwboIUDkgd9312DdJnCOQ==",
       "dependencies": [
-        "@ai-sdk/gateway",
+        "@ai-sdk/gateway@2.0.12_zod@4.1.13",
         "@ai-sdk/provider@2.0.0",
         "@ai-sdk/provider-utils@3.0.17_zod@4.1.13",
         "@opentelemetry/api",
@@ -1975,6 +2072,12 @@
     },
     "array-flatten@1.1.1": {
       "integrity": "sha512-PCVAQswWemu6UdxsDFFX/+gVeYqKAod3D3UVm91jHwynguOwAvYPhx8nNlM++NqRcK6CxxpUafjmhIdKiHibqg=="
+    },
+    "async-mutex@0.5.0": {
+      "integrity": "sha512-1A94B18jkJ3DYq284ohPxoXbfTA5HsQ7/Mf4DEhcyLx3Bz27Rh59iScbB6EPiP+B+joue6YCxcMXSbFC1tZKwA==",
+      "dependencies": [
+        "tslib"
+      ]
     },
     "asynckit@0.4.0": {
       "integrity": "sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q=="
@@ -2105,6 +2208,9 @@
     },
     "clone@2.1.2": {
       "integrity": "sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w=="
+    },
+    "cluster-key-slot@1.1.2": {
+      "integrity": "sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA=="
     },
     "color-convert@2.0.1": {
       "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
@@ -3092,8 +3198,20 @@
     "pathe@2.0.3": {
       "integrity": "sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w=="
     },
+    "pg-cloudflare@1.2.7": {
+      "integrity": "sha512-YgCtzMH0ptvZJslLM1ffsY4EuGaU0cx4XSdXLRFae8bPP4dS5xL1tNB3k2o/N64cHJpwU7dxKli/nZ2lUa5fLg=="
+    },
+    "pg-connection-string@2.9.1": {
+      "integrity": "sha512-nkc6NpDcvPVpZXxrreI/FOtX3XemeLl8E0qFr6F2Lrm/I8WOnaWNhIPK2Z7OHpw7gh5XJThi6j6ppgNoaT1w4w=="
+    },
     "pg-int8@1.0.1": {
       "integrity": "sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw=="
+    },
+    "pg-pool@3.10.1_pg@8.16.3": {
+      "integrity": "sha512-Tu8jMlcX+9d8+QVzKIvM/uJtp07PKr82IUOYEphaWcoBhIYkoHpLXN3qO59nAI11ripznDsEzEv8nUxBVWajGg==",
+      "dependencies": [
+        "pg"
+      ]
     },
     "pg-protocol@1.10.3": {
       "integrity": "sha512-6DIBgBQaTKDJyxnXaLiLR8wBpQQcGWuAESkRBX/t6OwA8YsqP+iVSiond2EDy6Y/dsGk8rh/jtax3js5NeV7JQ=="
@@ -3106,6 +3224,25 @@
         "postgres-bytea",
         "postgres-date",
         "postgres-interval"
+      ]
+    },
+    "pg@8.16.3": {
+      "integrity": "sha512-enxc1h0jA/aq5oSDMvqyW3q89ra6XIIDZgCX9vkMrnz5DFTw/Ny3Li2lFQ+pt3L6MCgm/5o2o8HW9hiJji+xvw==",
+      "dependencies": [
+        "pg-connection-string",
+        "pg-pool",
+        "pg-protocol",
+        "pg-types",
+        "pgpass"
+      ],
+      "optionalDependencies": [
+        "pg-cloudflare"
+      ]
+    },
+    "pgpass@1.0.5": {
+      "integrity": "sha512-FdW9r/jQZhSeohs1Z3sI1yxFQNFvMcnmfuj4WBMUTxOrAyLMaTcE1aAMBiTlbMNaXvBCQuVi0R7hd8udDSP7ug==",
+      "dependencies": [
+        "split2"
       ]
     },
     "picocolors@1.1.1": {
@@ -3198,6 +3335,9 @@
       "dependencies": [
         "xtend"
       ]
+    },
+    "postgres@3.4.7": {
+      "integrity": "sha512-Jtc2612XINuBjIl/QTWsV5UvE8UHuNblcO3vVADSrKsrc6RqGX6lOW1cEo3CM2v0XG4Nat8nI+YM7/f26VxXLw=="
     },
     "posthog-node@4.18.0": {
       "integrity": "sha512-XROs1h+DNatgKh/AlIlCtDxWzwrKdYDb2mOs58n4yN8BkGN9ewqeQwG5ApS4/IzwCb7HPttUkOVulkYatd2PIw==",
@@ -3297,6 +3437,16 @@
     },
     "real-require@0.2.0": {
       "integrity": "sha512-57frrGM/OCTLqLOAh0mhVA9VBMHd+9U7Zb2THMGdBUoZVOtGbJzjxsYGDJ3A9AYYCP4hn6y1TVbaOfzWtm5GFg=="
+    },
+    "redis@5.10.0_@redis+client@5.10.0": {
+      "integrity": "sha512-0/Y+7IEiTgVGPrLFKy8oAEArSyEJkU0zvgV5xyi9NzNQ+SLZmyFbUsWIbgPcd4UdUh00opXGKlXJwMmsis5Byw==",
+      "dependencies": [
+        "@redis/bloom",
+        "@redis/client",
+        "@redis/json",
+        "@redis/search",
+        "@redis/time-series"
+      ]
     },
     "require-directory@2.1.1": {
       "integrity": "sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q=="
@@ -3592,6 +3742,9 @@
     "tr46@0.0.3": {
       "integrity": "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw=="
     },
+    "tslib@2.8.1": {
+      "integrity": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="
+    },
     "type-is@1.6.18": {
       "integrity": "sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==",
       "dependencies": [
@@ -3619,6 +3772,9 @@
     },
     "ufo@1.6.1": {
       "integrity": "sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA=="
+    },
+    "uncrypto@0.1.3": {
+      "integrity": "sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q=="
     },
     "undici-types@6.21.0": {
       "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ=="
@@ -3719,6 +3875,9 @@
     "xtend@4.0.2": {
       "integrity": "sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ=="
     },
+    "xxhash-wasm@1.1.0": {
+      "integrity": "sha512-147y/6YNh+tlp6nd/2pWq38i9h6mz/EuQ6njIrmW8D1BS5nCqs0P6DG+m6zTGnNz5I+uhZ0SHxBs9BsPrwcKDA=="
+    },
     "y18n@5.0.8": {
       "integrity": "sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA=="
     },
@@ -3784,6 +3943,7 @@
       "jsr:@std/fs@^1.0.20",
       "jsr:@std/path@^1.1.3",
       "npm:@mastra/core@~0.24.6",
+      "npm:@mastra/memory@~0.15.13",
       "npm:@types/node@^24.2.0",
       "npm:mastra@~0.18.6",
       "npm:typescript@^5.9.3",

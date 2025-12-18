@@ -1,6 +1,7 @@
 {
   "imports": {
     "@mastra/core": "npm:@mastra/core@^0.24.6",
+    "@mastra/memory": "npm:@mastra/memory@^0.15.13",
     "@std/cli": "jsr:@std/cli@^1.0.24",
     "@std/fs": "jsr:@std/fs@^1.0.20",
     "@std/path": "jsr:@std/path@^1.1.3",
@@ -8,5 +9,8 @@
     "mastra": "npm:mastra@^0.18.6",
     "typescript": "npm:typescript@^5.9.3",
     "zod": "npm:zod@^4.1.13"
+  },
+  "tasks": {
+    "run": "deno --allow-env=DENO_TRACE_PERMISSIONS,MASTRA_DEV,MASTRA_AUTO_REFRESH_PROVIDERS,OPENAI_BASE_URL,NODE_ENV,MISTRAL_API_KEY,MISTRAL_BASE_URL --allow-net main.ts"
   }
 }
