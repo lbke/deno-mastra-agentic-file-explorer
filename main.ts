@@ -9,8 +9,10 @@ import process from "node:process";
 import { scanFolder } from "./tools.ts";
 // import { Memory } from "@mastra/memory";
 
+const SMALL_LLM = "mistral/ministral-3b-latest"
+const BIG_LLM = "mistral/mistral-large-latest"
 const fileExplorerAgent = new Agent({
-    model: "mistral/ministral-3b-latest",
+    model: BIG_LLM,
     instructions: `
     You are a file explorer agent.
     Answer user questions about a folder.
